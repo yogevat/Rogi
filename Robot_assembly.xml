@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<SimscapeMultibodyImportXML version="2.0" xmlns="urn:mathworks:SimscapeMultibody:import" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Created by="" on="01/18/22||22:14:52" using="Simscape Multibody Link Version 7.2" from="SolidWorks 29.3.0"/>
+<ModelUnits mass="kilogram" length="millimeter"/>
+<DataUnits mass="kilogram" length="meter"/>
+<RootAssembly name="Robot_assembly" uid="Robot_assembly" version="374">
+<AssemblyFile name="Robot_assembly.SLDASM" type="SolidWorks Assembly"/>
+<InstanceTree>
+<Instance name="body-1" uid="body-1" entityUid="body*:*Default">
+<Transform>
+<Rotation>-0.9999381266041395 5.5019854883658224e-06 0.011123980094010187 1.4610979526957779e-16 -0.99999987768255527 0.00049460577680696203 0.011123981454667194 0.0004945751738679666 0.99993800429426305</Rotation>
+<Translation>-1.7664078368727023 0.23364144080823762 0.024599219005492348</Translation>
+</Transform>
+</Instance>
+<Instance name="jonit_No_2-2" uid="jonit_No_2-2" entityUid="jonit_No_2*:*Default">
+<Transform>
+<Rotation>0.87437825875814457 0.48511742668960434 0.01112398009401023 -0.48515219646407998 0.8744295864340389 0.00049460577680692647 -0.0094871954314354658 -0.005829295913927929 0.99993800429426327</Rotation>
+<Translation>-1.5812379077968024 0.078462375472184015 0.15762439185206886</Translation>
+</Transform>
+</Instance>
+<Instance name="jonit_No_1-3" uid="jonit_No_1-3" entityUid="jonit_No_1*:*Default">
+<Transform>
+<Rotation>0.52107003864548529 0.85344142850746418 -0.011123980094010208 0.85349126539694065 -0.52110691346042881 -0.00049460577680690793 -0.0062188999928910462 -0.0092364955954521016 -0.99993800429426305</Rotation>
+<Translation>-1.5936414562947454 0.14091495004769805 -0.082283393978000746</Translation>
+</Transform>
+</Instance>
+<Instance name="jonit_No_2-1" uid="jonit_No_2-1" entityUid="jonit_No_2*:*Default">
+<Transform>
+<Rotation>0.87444299632855749 0.48500072498791413 0.011123980094010227 -0.48503548791172074 0.87449432864448262 0.00049460577680743734 -0.0094879733438312467 -0.0058280296698914298 0.99993800429426294</Rotation>
+<Translation>-1.9871325296039786 0.082295949949470176 0.16213793925779216</Translation>
+</Transform>
+</Instance>
+<Instance name="Road_for_robot-1" uid="Road_for_robot-1" entityUid="Road_for_robot*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Instance>
+<Instance name="jonit_No_1-5" uid="jonit_No_1-5" entityUid="jonit_No_1*:*Default">
+<Transform>
+<Rotation>0.59847464360114699 0.80106451552502822 -0.011123980094010437 0.80111069195343143 -0.5985160103146947 -0.00049460577680693167 -0.0070540913216609342 -0.0086155303743913024 -0.99993800429426294</Rotation>
+<Translation>-1.9974869371841844 0.14353397871987358 -0.077792041829695374</Translation>
+</Transform>
+</Instance>
+<Instance name="jonit_No_1-1" uid="jonit_No_1-1" entityUid="jonit_No_1*:*Default">
+<Transform>
+<Rotation>0.57216799675556362 -0.82006099807001764 0.011123980094010175 0.8201084923803984 0.57220784343687181 0.00049460577680685426 -0.0067708355670076789 0.0088398729476689419 0.99993800429426316</Rotation>
+<Translation>-1.993835569022163 0.1426879559116547 0.1321807762843672</Translation>
+</Transform>
+</Instance>
+<Instance name="jonit_No_2-3" uid="jonit_No_2-3" entityUid="jonit_No_2*:*Default">
+<Transform>
+<Rotation>0.8888549781984949 0.45805358289027892 0.011123980094010152 -0.45808676100117079 0.88890734880558953 0.00049460577680694175 -0.0096616317053480685 -0.0055353808176671938 0.99993800429426294</Rotation>
+<Translation>-1.5841407590990799 0.079916916337804192 -0.082358914246570131</Translation>
+</Transform>
+</Instance>
+<Instance name="jonit_No_2-4" uid="jonit_No_2-4" entityUid="jonit_No_2*:*Default">
+<Transform>
+<Rotation>0.86659726939974546 0.49888418469197143 0.011123980094010251 -0.4989197618146024 0.8666480408077929 0.00049460577680702925 -0.0093938245547525601 -0.0059785975145442861 0.99993800429426294</Rotation>
+<Translation>-1.992746778588252 0.083521653649617916 -0.077815090245802451</Translation>
+</Transform>
+</Instance>
+<Instance name="jonit_No_1-2" uid="jonit_No_1-2" entityUid="jonit_No_1*:*Default">
+<Transform>
+<Rotation>0.51294839007219606 -0.85834736918639776 0.011123980094010159 0.8583975537323163 0.51298479033154643 0.00049460577680700973 -0.0061309761634847889 0.0092950900635317413 0.99993800429426294</Rotation>
+<Translation>-1.5908993380463388 0.14077350284405882 0.12769919073232416</Translation>
+</Transform>
+</Instance>
+</InstanceTree>
+<Constraints>
+<Concentric name="Concentric1">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>body-1</Uid>
+</InstancePath>
+<Position>0.19999999999999996 0.050000000000000044 0.105</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>jonit_No_1-1</Uid>
+</InstancePath>
+<Position>0.049999999999999822 -4.4408920985006262e-16 -0.029999999999999999</Position>
+<Axis>0 0 1.0000000000000002</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Concentric2">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>jonit_No_1-1</Uid>
+</InstancePath>
+<Position>-0.050000000000000044 -2.2204460492503131e-16 0.030000000000000013</Position>
+<Axis>0 0 -1.0000000000000002</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>jonit_No_2-1</Uid>
+</InstancePath>
+<Position>-0.039999999999999813 0 -0.029999999999999985</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Coincident1">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_1-1</Uid>
+</InstancePath>
+<Position>0.050000000000000044 0 0</Position>
+<Axis>0 0 1.0000000000000002</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_2-1</Uid>
+</InstancePath>
+<Position>0.040000000000000036 0 -0.029999999999999985</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Coincident name="Coincident2">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>body-1</Uid>
+</InstancePath>
+<Position>-0.25 0.10000000000000001 0.074999999999999983</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_1-1</Uid>
+</InstancePath>
+<Position>0.049999999999999822 -4.4408920985006262e-16 -0.029999999999999999</Position>
+<Axis>0 0 -1.0000000000000002</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Concentric4">
+<ConstraintGeometry geomType="circle">
+<InstancePath>
+<Uid>body-1</Uid>
+</InstancePath>
+<Position>-0.20000000000000018 0.049999999999999961 0.10499999999999995</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="circle">
+<InstancePath>
+<Uid>jonit_No_1-2</Uid>
+</InstancePath>
+<Position>0.049999999999999933 2.2204460492503131e-16 0</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Coincident3">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>body-1</Uid>
+</InstancePath>
+<Position>-0.25 0.10000000000000001 0.074999999999999983</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_1-2</Uid>
+</InstancePath>
+<Position>0.050000000000000044 2.2204460492503131e-16 -0.029999999999999985</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Concentric5">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>jonit_No_1-2</Uid>
+</InstancePath>
+<Position>-0.050000000000000044 2.2204460492503131e-16 0.029999999999999985</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>jonit_No_2-2</Uid>
+</InstancePath>
+<Position>-0.040000000000000036 1.1102230246251565e-16 -0.030000000000000013</Position>
+<Axis>0 0 1.0000000000000002</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Coincident4">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_1-2</Uid>
+</InstancePath>
+<Position>0.049999999999999933 2.2204460492503131e-16 0</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_2-2</Uid>
+</InstancePath>
+<Position>0.040000000000000036 1.1102230246251565e-16 -0.030000000000000013</Position>
+<Axis>0 0 -1.0000000000000002</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Concentric6">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>body-1</Uid>
+</InstancePath>
+<Position>-0.20000000000000018 0.050000000000000017 -0.10500000000000002</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>jonit_No_1-3</Uid>
+</InstancePath>
+<Position>0.050000000000000044 0 -0.029999999999999999</Position>
+<Axis>0 0 0.99999999999999978</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Coincident6">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>body-1</Uid>
+</InstancePath>
+<Position>-0.25 0.10000000000000003 -0.075000000000000011</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_1-3</Uid>
+</InstancePath>
+<Position>0.050000000000000044 0 -0.029999999999999999</Position>
+<Axis>0 0 -0.99999999999999978</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Concentric8">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>jonit_No_1-3</Uid>
+</InstancePath>
+<Position>-0.049999999999999933 -2.2204460492503131e-16 0.029999999999999971</Position>
+<Axis>0 0 -0.99999999999999978</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>jonit_No_2-3</Uid>
+</InstancePath>
+<Position>-0.040000000000000036 1.1102230246251565e-16 -0.029999999999999971</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Coincident7">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_1-3</Uid>
+</InstancePath>
+<Position>0.049999999999999933 -2.2204460492503131e-16 0</Position>
+<Axis>0 0 0.99999999999999978</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_2-3</Uid>
+</InstancePath>
+<Position>0.040000000000000036 1.1102230246251565e-16 0</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Concentric11">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>body-1</Uid>
+</InstancePath>
+<Position>0.19999999999999973 0.050000000000000017 -0.10500000000000001</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>jonit_No_1-5</Uid>
+</InstancePath>
+<Position>0.049999999999999822 2.2204460492503131e-16 -0.029999999999999999</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Coincident8">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>body-1</Uid>
+</InstancePath>
+<Position>-0.25 0.10000000000000003 -0.075000000000000011</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_1-5</Uid>
+</InstancePath>
+<Position>0.049999999999999822 2.2204460492503131e-16 -0.029999999999999999</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Concentric12">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>jonit_No_2-4</Uid>
+</InstancePath>
+<Position>-0.040000000000000036 1.1102230246251565e-16 -0.029999999999999985</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>jonit_No_1-5</Uid>
+</InstancePath>
+<Position>-0.049999999999999822 2.2204460492503131e-16 0.029999999999999971</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Coincident9">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_1-5</Uid>
+</InstancePath>
+<Position>0.050000000000000044 2.2204460492503131e-16 0</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>jonit_No_2-4</Uid>
+</InstancePath>
+<Position>0.039999999999999813 1.1102230246251565e-16 0</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Coincident name="Coincident10">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Road_for_robot-1</Uid>
+</InstancePath>
+<Position>0 0 0</Position>
+<Axis>0 1 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>Robot_assembly</Uid>
+</InstancePath>
+<Position>0 0 0</Position>
+<Axis>0 1 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+</Constraints>
+</RootAssembly>
+<Assemblies>
+</Assemblies>
+<Parts>
+<Part name="Road_for_robot" uid="Road_for_robot*:*Default" version="140">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="Road_for_robot.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>3596.1000000000013</Mass>
+<CenterOfMass>8.2244517847757474e-16 0.01 0</CenterOfMass>
+<Inertia>16875.1190575 189670.05593750006 172795.17662000004 0 1.7765638627454774e-11 5.5750886763031295e-15</Inertia>
+</MassProperties>
+<GeometryFile name="Road_for_robot_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="body" uid="body*:*Default" version="130">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="body.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>7.5212057504117302</Mass>
+<CenterOfMass>0 0.05000000000000001 0</CenterOfMass>
+<Inertia>0.020486155215481066 0.17133438523195027 0.16334882642819953 0 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="body_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.28627450980392155" g="0.66274509803921566" b="0.32941176470588235" a="1"/>
+<Diffuse r="0.28627450980392155" g="0.66274509803921566" b="0.32941176470588235" a="1"/>
+<Specular r="0.14313725490196078" g="0.33137254901960783" b="0.16470588235294117" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="jonit_No_1" uid="jonit_No_1*:*Default" version="133">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="jonit_No_1.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.15762819038892273</Mass>
+<CenterOfMass>-0.0033857511888211243 0 -0.013991023574554973</CenterOfMass>
+<Inertia>3.6200840531249981e-05 0.00024446437551701197 0.00024779934133838425 0 7.4136759444014342e-06 0</Inertia>
+</MassProperties>
+<GeometryFile name="jonit_No_1_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="jonit_No_2" uid="jonit_No_2*:*Default" version="181">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="jonit_No_2.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.17807401581966908</Mass>
+<CenterOfMass>0.020045760752284179 0 -0.014999999999999999</CenterOfMass>
+<Inertia>4.2466582135163712e-05 0.00030648087118858631 0.00032223635095079961 0 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="jonit_No_2_Default_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+</Parts>
+</SimscapeMultibodyImportXML>

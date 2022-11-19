@@ -1,0 +1,143 @@
+run('Robot_assembly_DataFile.m');
+open_system('Long_Dog_Simulation.slx')
+
+obsInfo = rlNumericSpec([29 1],...
+    'LowerLimit',[13 -156 -inf -inf -181 -155 -inf -inf -180 18 -inf -inf 64 14 -inf -inf -inf -inf -inf -inf -inf -inf -inf -inf -inf -inf -inf -inf -inf]',...
+    'UpperLimit',[153 -66 inf inf -181 -15 inf inf -60 158 inf inf 184 154 inf inf inf inf inf inf inf inf inf inf inf inf inf inf inf]');
+obsInfo.Name = 'observations';
+numObservations = obsInfo.Dimension(1);
+
+actInfo = rlNumericSpec([8 1],'LowerLimit',-50,'UpperLimit',50);
+numActions = actInfo.Dimension(1);
+
+env = rlSimulinkEnv('Long_Dog_Simulation','Long_Dog_Simulation/RL Agent',obsInfo,actInfo);
+
+env.ResetFcn = @(in)localResetFcn(in);
+
+Ts = 0.05;
+Tf = 10;
+rng(0)
+
+
+%% רשתות 
+criticLayerSizes = [400 300];
+statePath = [
+    featureInputLayer(numObservations,'Normalization','none','Name', 'observation')
+    fullyConnectedLayer(criticLayerSizes(1), 'Name', 'CriticStateFC1', ... 
+            'Weights',2/sqrt(numObservations)*(rand(criticLayerSizes(1),numObservations)-0.5), ...
+            'Bias',2/sqrt(numObservations)*(rand(criticLayerSizes(1),1)-0.5))
+    reluLayer('Name','CriticStateRelu1')
+    fullyConnectedLayer(criticLayerSizes(2), 'Name', 'CriticStateFC2', ...
+            'Weights',2/sqrt(criticLayerSizes(1))*(rand(criticLayerSizes(2),criticLayerSizes(1))-0.5), ... 
+            'Bias',2/sqrt(criticLayerSizes(1))*(rand(criticLayerSizes(2),1)-0.5))
+    ];
+actionPath = [
+    featureInputLayer(numActions,'Normalization','none', 'Name', 'action')
+    fullyConnectedLayer(criticLayerSizes(2), 'Name', 'CriticActionFC1', ...
+            'Weights',2/sqrt(numActions)*(rand(criticLayerSizes(2),numActions)-0.5), ... 
+            'Bias',2/sqrt(numActions)*(rand(criticLayerSizes(2),1)-0.5))
+    ];
+commonPath = [
+    additionLayer(2,'Name','add')
+    reluLayer('Name','CriticCommonRelu1')
+    fullyConnectedLayer(1, 'Name', 'CriticOutput',...
+            'Weights',2*5e-3*(rand(1,criticLayerSizes(2))-0.5), ...
+            'Bias',2*5e-3*(rand(1,1)-0.5))
+    ];
+
+% Connect the layer graph
+criticNetwork = layerGraph(statePath);
+criticNetwork = addLayers(criticNetwork, actionPath);
+criticNetwork = addLayers(criticNetwork, commonPath);
+criticNetwork = connectLayers(criticNetwork,'CriticStateFC2','add/in1');
+criticNetwork = connectLayers(criticNetwork,'CriticActionFC1','add/in2');
+
+% Create critic representation
+criticOptions = rlRepresentationOptions('Optimizer','adam','LearnRate',1e-3, ... 
+                                        'GradientThreshold',1,'L2RegularizationFactor',2e-4);
+useGPU = false;
+if useGPU
+   criticOptions.UseDevice = 'gpu'; 
+end
+critic = rlRepresentation(criticNetwork,obsInfo,actInfo, ...
+                          'Observation',{'observation'},'Action',{'action'}, ...
+                          criticOptions);
+
+%% ACTOR
+% Create the actor network layers
+actorLayerSizes = [400 300];
+actorNetwork = [
+    featureInputLayer(numObservations,'Normalization','none','Name','observation')
+    fullyConnectedLayer(actorLayerSizes(1), 'Name', 'ActorFC1', ...
+            'Weights',2/sqrt(numObservations)*(rand(actorLayerSizes(1),numObservations)-0.5), ... 
+            'Bias',2/sqrt(numObservations)*(rand(actorLayerSizes(1),1)-0.5))
+    reluLayer('Name', 'ActorRelu1')
+    fullyConnectedLayer(actorLayerSizes(2), 'Name', 'ActorFC2', ... 
+            'Weights',2/sqrt(actorLayerSizes(1))*(rand(actorLayerSizes(2),actorLayerSizes(1))-0.5), ... 
+            'Bias',2/sqrt(actorLayerSizes(1))*(rand(actorLayerSizes(2),1)-0.5))
+    reluLayer('Name', 'ActorRelu2')
+    fullyConnectedLayer(numActions, 'Name', 'ActorFC3', ... 
+            'Weights',2*5e-3*(rand(numActions,actorLayerSizes(2))-0.5), ... 
+            'Bias',2*5e-5*(rand(numActions,1)-0.5))                       
+    %tanhLayer('Name','ActorTanh1')
+    ];
+
+% Create actor representation
+actorOptions = rlRepresentationOptions('Optimizer','adam','LearnRate',1e-4, ...
+                                       'GradientThreshold',1,'L2RegularizationFactor',1e-5);
+if useGPU
+   actorOptions.UseDevice = 'gpu'; 
+end
+actor = rlRepresentation(actorNetwork,obsInfo,actInfo, ... 
+                         'Observation',{'observation'}, ...
+                         'Action',{'ActorFC3'},actorOptions);
+         
+%% סוף רשתות
+agentOptions = rlDDPGAgentOptions;
+agentOptions.SampleTime = Ts;
+agentOptions.DiscountFactor = 0.89;
+agentOptions.MiniBatchSize = 300;
+agentOptions.ExperienceBufferLength = 1e6;
+agentOptions.TargetSmoothFactor = 1e-3;
+agentOptions.NoiseOptions.MeanAttractionConstant = 0.15;
+agentOptions.NoiseOptions.Variance = 0.1;
+agent = rlDDPGAgent(actor,critic,agentOptions);
+
+maxEpisodes = 8000;
+maxSteps = floor(Tf/Ts);  
+trainOpts = rlTrainingOptions(...
+    'MaxEpisodes',maxEpisodes,...
+    'MaxStepsPerEpisode',maxSteps,...
+    'ScoreAveragingWindowLength',250,...
+    'Verbose',true,...
+    'Plots','training-progress',...
+    'StopTrainingCriteria','AverageReward',...
+    'StopTrainingValue',10000,...                   
+    'SaveAgentCriteria','EpisodeReward',... 
+    'SaveAgentValue',200);          
+
+doTraining = 1;
+
+if doTraining
+    % Train the agent.
+    trainingStats = train(agent,env,trainOpts);
+else
+    % Load the pretrained agent for the example.
+    load('Agent_Two_Pend_Finel_Randi.mat', 'agent')
+end
+
+simOpts = rlSimulationOptions('MaxSteps',maxSteps,'StopOnError','on');
+experiences = sim(env,agent,simOpts);
+save("DOG.mat","agent")
+function in = localResetFcn(in)
+
+% randomize reference signal
+%blk = sprintf('Simulink_From_The_Water_Tank/Finel \nWater Level');
+theta = randi(360);
+
+% in = setBlockParameter(in,blk,'Value',num2str(theta));
+
+%blk = 'Pendulim_Solid/Pendulum/Integrator1';
+%in = setBlockParameter(in,blk,'InitialCondition',num2str(theta));
+
+end
